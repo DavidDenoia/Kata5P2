@@ -4,14 +4,14 @@ import Model.Histogram;
 import Model.Mail;
 import View.HistogramDisplay;
 import View.MailHistogramBuilder;
-import View.MailListReader;
+import View.MailListReaderBD;
 import java.util.List;
-import java.util.Scanner;
+
 
 
 public class Kata5P2 {
     
-    private String fileName;
+   
     private List<Mail> mailList;
     private Histogram<String> histogram;
 
@@ -27,9 +27,7 @@ public class Kata5P2 {
     }
     
     private void input() {
-        System.out.println("Introduce el nombre del fichero: ");
-        fileName = new Scanner(System.in).nextLine();
-        mailList = MailListReader.read(fileName);
+        mailList = new MailListReaderBD().read();
     }
     
     private void process() {
